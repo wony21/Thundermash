@@ -23,7 +23,7 @@
     </select>
     <select id="getMyAttend">
         SELECT ATTEND_FG as attendFg
-        FROM TBL_ATTEND
+        FROM tbl_attend
         WHERE SCHID = #{schId}
           AND USERID = #{userId}
     </select>
