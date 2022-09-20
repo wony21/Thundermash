@@ -1,0 +1,45 @@
+doctype html
+html
+  head
+    title=title
+    meta(name="metro4:init" content="true")
+    meta(name="metro4:locale" content="ko-KR")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=no")
+    link(rel="preconnect" href="https://fonts.googleapis.com")
+    link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+    link(href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet")
+    script(src="/modules/jquery/dist/jquery.min.js")
+    script(src="/modules/mustache/mustache.min.js")
+    script(src="/modules/metro4-dist/js/metro.min.js") 
+    script(src="/javascripts/common.js")
+    script(src="/javascripts/users/users.js")
+    link(rel='stylesheet', href='/modules/metro4-dist/css/metro.min.css')
+    link(rel="stylesheet", href="/modules/metro4-dist/css/metro-icons.min.css")
+    link(rel="stylesheet", href="/modules/metro4-dist/css/metro-colors.min.css")
+    link(rel="stylesheet", href="/modules/metro4-dist/css/metro-animation.min.css")
+    link(rel='stylesheet', href='/stylesheets/common.css')
+    link(rel='stylesheet', href='/stylesheets/urmem.css')
+body
+    div(class="top-div")
+        div(class="top-title")
+    div(class="sub-header")
+        div(class="sub-title") 환영합니다!
+    div(class="joinus-message-box")
+        div(class="big-text")
+            | 회원가입이
+        div(class="sub-text")
+            | 정상적으로 완료 되었습니다!
+    div(class="member-info-layout")
+        div(class="comment")
+            | #{dateFmtStr} 저희와 같은 마음이 되셨습니다!
+        div(class="member-info-box") 
+            | 가입정보
+        div(class="member-info")
+            p(class="name-text") #{userName}(#{userId})
+            p(class="sub-info-text") #{age} #{grade} #{gender}
+            P(class="sub-info-text") #{mobile}
+            p 가입일시 : #{registerDateFmt}
+    div(class="join-us-bottom")
+        div(id="goto-main-button" class="goto-main-button") 로그인화면으로
+        
+

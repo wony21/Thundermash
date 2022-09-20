@@ -1,0 +1,22 @@
+extends ../../layout2
+
+block header 
+    link(rel='stylesheet', href='/stylesheets/schedule.css')
+
+block content
+    div(class="sub-header")
+        div(class="sub-title") 모임수정완료
+    div(class="member-info-layout")
+        div(class="info-box-field")
+            div(class="schedule-info-box") 모임정보
+            div(class="schedule-info")
+                p(class="name-text") #{schNm}
+                p(class="sub-info-text") 장소 : #{schLoc}
+                p(class="sub-info-text") 일시 : #{schDateFmt}
+                p(class="sub-info-text") 최대정원 : #{maxAttLimit}명
+                p(class="sub-info-text") 투표만료일 : #{voteDateFmt} 까지
+    div(class="submit-bottom")
+        div(id="goto-list-button" class="submit-button") 모임일정달력
+
+block scripts
+    script(src="/javascripts/schedule/schedule.js")

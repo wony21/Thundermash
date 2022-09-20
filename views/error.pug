@@ -1,0 +1,16 @@
+extends layout2
+
+block header 
+    link(rel='stylesheet', href='/stylesheets/error.css')
+
+block content
+    div(class="sub-header")
+        div(class="sub-error-title") 오류 페이지
+    div(class="error-info-layout")
+        div(class="error-info-title") 페이지 오류가 발생되었습니다.
+        div(class="error-info-message") #{message}
+    div(class="submit-bottom")
+        div(id="goto-back-button" class="submit-button" onclick='history.back()') 돌아기기
+
+block scripts
+    script(src="/javascripts/schedule/error.js")

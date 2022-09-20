@@ -1,0 +1,138 @@
+extends layout2 
+
+block header 
+  link(rel='stylesheet', href='/stylesheets/index.css')
+
+block content
+  div(class="exercise-day bg-color-wg")
+    div(class="cus-info-box bg-color-rd") 
+      | 최신일정
+    div(class="input-field" data-target="username")
+      div(class="label") 장소
+      div(class="value-field" id="schId" data-schedule=`${schId}`)
+        | #{schLoc}
+    div(class="input-field" data-target="username")
+      div(class="label") 일시
+      div(class="date-value-field")
+        | #{schDate}
+    div(class="input-field" data-target="username")
+      div(class="label") 참석인원
+      div(class="date-value-field" id="total-attend-users")
+        | #{totalAttendCount}명 / #{maxAttLimit}명
+  //- div(class="join-confirm")
+  //-   div(class="exercise-button exercise-join" id="attend" data-value="1") 참석
+  //-   div(class="exercise-button exercise-not-join" id="not-attend" data-value="0") 불참
+  div(class="join-confirm")
+    | 이번모임 참석여부를 알려주세요
+    input(type="radio" name="attend-group" id="attend-radio" data-value="1" data-role="radio" data-caption="참석")
+    input(type="radio" name="attend-group" id="absent-radio" data-value="0" data-role="radio" data-caption="불참")
+  div(class="exercise-members fg-color-ok" id="attend-list-header")
+    | 참석자
+  div(class="exercies-member-list bg-color-wt" id="attend-list")
+  div(class="exercise-members fg-color-rd" id="absent-list-header")
+    | 불참자
+  div(class="exercies-member-list bg-color-wt" id="absent-list")
+  div(class="exercise-members fg-color-gy" id="unvote-list-header")
+    | 미투표자
+  div(class="exercies-member-list bg-color-wt" id="unvote-list")
+  div(class="exercise-members fg-color-yw")
+    div(id="guest-list-header") 게스트
+    div(class="guest-button" id="guest-button") 게스트신청
+  div(class="exercies-member-list bg-color-wt" id="guest-list")
+  //- 게스트 신청 폼 시작
+  div(class="background-filter")
+  div(class="guest-dialog" id="guest-attend-dialog")
+    div(class="guest-header") 게스트신청
+    div(class="guest-sub-header") 아래 정보를 입력하고 신청을 완료하세요.
+    div(class="guest-content")
+      div(class="guest-input-field")
+        div(class="label") 이름
+        div(class="input-control")
+          input(type="text" id="guest-name" name="name" placeholder="여기에 게스트명을 입력하세요" required)
+      div(class="guest-input-field")
+        div(class="label") 연령
+        div(class="input-control")
+          select(class="choice" id="age" name="age" data-value=`${age}` required)
+            option(value="50") 50대
+            option(value="40") 40대
+            option(value="30") 30대
+            option(value="20") 20대 이하
+      div(class="guest-input-field")
+        div(class="label") 급수
+        div(class="input-control")
+          select(class="choice" id="grade" name="grade" data-value=`${grade}` required)
+            option(value="F") 초심 (1년이하)
+            option(value="A") A조
+            option(value="B") B조
+            option(value="C") C조
+            option(value="D") D조
+            option(value="S") S조
+      div(class="guest-input-field")
+        div(class="label") 성별
+        div(class="input-control")
+          select(class="choice" id="gender" name="gender" data-value=`${gender}` required)
+            option(value="M") 남성
+            option(value="F") 여성
+    div(class="guest-bottom")
+      div(class="button primary" id="guest-attend-button") 등록하기
+  //- 게스트 신청 폼 끝
+  //- 게스트 정보 폼 시작
+  div(class="guest-dialog" id="guest-info-dialog")
+    div(class="guest-header") 게스트정보
+    div(class="guest-content")
+      div(class="guest-input-field")
+        div(class="label") 이름
+        div(class="input-control")
+          input(type="text" id="guest-name-info" name="name" readonly placeholder="여기에 게스트명을 입력하세요" required)
+      div(class="guest-input-field")
+        div(class="label") 연령
+        div(class="input-control")
+          select(class="choice" id="age-info" name="age-info" data-value=`${age}`)
+            option(value="50") 50대
+            option(value="40") 40대
+            option(value="30") 30대
+            option(value="20") 20대 이하
+      div(class="guest-input-field")
+        div(class="label") 급수
+        div(class="input-control")
+          select(class="choice" id="grade-info" name="grade-info" data-value=`${grade}`)
+            option(value="F") 초심 (1년이하)
+            option(value="A") A조
+            option(value="B") B조
+            option(value="C") C조
+            option(value="D") D조
+            option(value="S") S조
+      div(class="guest-input-field")
+        div(class="label") 성별
+        div(class="input-control")
+          select(class="choice" id="gender-info" name="gender-info" data-value=`${gender}`)
+            option(value="M") 남성
+            option(value="F") 여성
+      div(class="guest-input-field")
+        div(class="label") 신청회원
+        div(class="input-control")
+          input(type="text" id="guest-userid-info" readonly)
+      div(class="guest-input-field")
+        div(class="label") 등록일시
+        div(class="input-control")
+          input(type="text" id="guest-attend-date" readonly)
+    div(class="guest-bottom")
+      div(class="button alert" id="guest-remove-button") 등록삭제
+      div(class="guest-sub-header") 등록삭제는 신청회원만 가능합니다.
+  //- 게스트 정보 폼 끝
+  div(class="info-location" id="info-location")
+    div(id="location-data-info" data-coord-x=`${coordX}` data-coord-y=`${coordY}` data-road=`${road}` data-parcel=`${parcel}`)
+    div(class="info-location-header") 
+      span(class="mif-location")
+      div 모임장소
+    div(id="vmap")
+    div(class="address-info")
+      div(class="addess-info-group")
+        div(class="cus-info-small-box bg-color-item") 도로명
+        div(class="item" id="road") #{road}
+      div(class="addess-info-group")
+        div(class="cus-info-small-box bg-color-item") 지번주소
+        div(class="item" id="parcel") #{parcel}
+  
+block scripts
+  script(src="javascripts/index.js")

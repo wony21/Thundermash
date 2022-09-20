@@ -1,0 +1,41 @@
+extends ../layout
+
+block content
+    #input-layout
+        <br>
+        small 정모 만들기
+        hr
+        form(class="input-form" id="create-battle-form" action="/battles/add" method="post" data-role="validator" data-on-submit="return fnObj.createBattle();")
+            .form-group 
+                //- input(type="text" data-role="materialinput" data-icon="<span class='mif-users'>" data-label="모임명" placeholder="모임명") 
+                label 모임명
+                input(type="text" id="battle-name" name="name" data-role="input" data-validate="required" data-clear-button="false")
+                span(class="invalid_feedback") 모임명을 입력하세요.
+            .form-group
+                label 모임일자
+                //- input(data-role="datepicker" data-format="%Y-%m-%d" data-locale="ko-KR")
+                input(type="text" id="battle-date" name="date" data-role="calendarpicker" data-validate="required")
+                span(class="invalid_feedback") 모임일자를 선택하세요.
+            .form-group 
+                label 모임시간
+                input(data-role="timepicker" id="battle-time" name="time" data-seconds="false" data-value="18:30" data-validate="required") 
+                span(class="invalid_feedback") 모임시간을 선택하세요.
+            .form-group 
+                //- input(type="text" data-role="materialinput" data-icon="<span class='mif-users'>" data-label="모임명" placeholder="모임명") 
+                label 모임장소
+                input(type="text" id="battle-location" name="location" data-role="input" data-validate="required" data-clear-button="false")
+                span(class="invalid_feedback") 모임장소를 입력하세요.
+            .form-group 
+                //- input(type="text" data-role="materialinput" data-icon="<span class='mif-users'>" data-label="모임명" placeholder="모임명") 
+                label 장소URL
+                input(type="text" id="url1" name="url1" data-role="input" data-clear-button="false")
+                div(class="button primary rounded" id="preview-location-url") 미리보기
+            .form-group 
+                //- input(type="text" data-role="materialinput" data-icon="<span class='mif-users'>" data-label="모임명" placeholder="모임명") 
+                label 2차URL
+                input(type="text" id="url2" name="url2" data-role="input" data-clear-button="false")
+            .form-group
+                div(class="button success rounded" id="create-battle-button") 모임 만들기
+
+block scripts
+    script(src="/javascripts/battles/battles.js")

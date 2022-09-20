@@ -1,0 +1,91 @@
+extends ../../layout2 
+
+block header
+    link(rel='stylesheet', href='/stylesheets/schedule.css')
+
+block content
+    div(class="sub-header")
+        div(class="sub-title") 모임생성
+    form(id="add-schedule" method="post" action="/schedule/v1/add")
+        input(type="hidden" name="coordX" id="coordX")
+        input(type="hidden" name="coordY" id="coordY")
+        input(type="hidden" name="road" id="road")
+        input(type="hidden" name="parcel" id="parcel")
+        div(class="member-info-layout")
+            div
+                span(class="invalid-msg" data-target="name") 정모명을 입력하세요.
+                div(class="input-field" data-target="name")
+                    div(class="label") 정모명
+                    div(class="input-control")
+                        input(type="text" id="name" name="name" required)
+            div
+                span(class="invalid-msg" data-target="location") 장소명을 입력하세요.
+                div(class="input-field" data-target="location")
+                    div(class="label") 장소
+                    div(class="input-control")
+                        input(type="text" id="location" name="location" autocomplete="off" required)
+            div
+                span(class="invalid-msg" data-target="date") 정모일자를 입력하세요.
+                div(class="input-field" data-target="date")
+                    div(class="label") 정모일자
+                    div(class="input-control")
+                        input(type="text" id="date" name="date" data-role="calendarpicker" data-dialog-mode="true" data-show-header="false" required)
+            div(class="input-field")
+                div(class="label") 시간
+                div(class="input-control display-time-right")
+                    select(class="time-choice" id="hour" name="hour")
+                    select(class="time-choice" id="min" name="min")
+            div(class="input-field")
+                div(class="label") 최대정원
+                div(class="input-control display-time-right")
+                    select(class="choice" id="max-attend" name="maxAttLimit")
+            div(class="input-field")
+                div(class="label") URL1명칭
+                div(class="input-control")
+                    input(type="text" id="url1Nm" name="url1Nm")
+            div(class="input-field")
+                div(class="label") URL1
+                div(class="input-control")
+                    input(type="text" id="url1" name="url1")
+            div(class="input-field")
+                div(class="label") URL2명칭
+                div(class="input-control")
+                    input(type="text" id="url2Nm" name="url2Nm")
+            div(class="input-field" data-target="username")
+                div(class="label") URL2
+                div(class="input-control")
+                    input(type="text" id="url2" name="url2")
+            div(class="input-field")
+                div(class="label") 대진표
+                div(class="input-control")
+                    input(type="file" id="teamTreeUrl" name="teamTreeUrl")
+            div(class="input-field")
+                div(class="label") 투표기간
+                div(class="input-control display-time-right")
+                    select(class="choice" id="voteDays" name="voteDays") 
+                div(class="label") 일 전까지
+        div(class="submit-bottom")
+            div(id="submit-button" class="submit-button") 모임생성
+    div(id="popup-tools-background" class="popup-tools-background")
+    div(id="place-search-form" class="popup-tools")
+        div(class="place-search-box")
+            div(class="place-input-field")
+                input(type="text" id="location-search" placeholder="장소명을 입력하세요.")
+                div(id="search-button" class="button")
+                    span(class="mif-search")
+            div(class="search-result-comment" id="support-comment")
+            div(class="place-input-field")
+                div(id="place-result-select" class="place-result-select")
+                    //- span(class="mif-spinner5 ani-spin")
+                    //- div(class="comment") 검색 후 장소를 선택해주세요.
+        div(id="scheduleMap")
+        div(class="address-area")
+            div(class="cus-info-small-box bg-color-ok") 도로명
+            div(id="address-road" class="item")
+            div(class="cus-info-small-box bg-color-ok") 지번
+            div(id="address-parcel" class="item")
+        div(class="bottom-area")
+            div(class="button primary" id="select-location-button") 이 장소로 선택
+
+block scripts
+    script(src="/javascripts/schedule/schedule.js")

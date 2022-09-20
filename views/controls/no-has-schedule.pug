@@ -1,0 +1,24 @@
+extends ../layout2
+
+block header 
+    link(rel='stylesheet', href='/stylesheets/schedule.css')
+
+block content
+    div(class="sub-header")
+        div(class="sub-title") 
+            span(class="mif-notification")
+            div(class="sub-content-header-msg") 아래 내용을 확인하세요.
+    div(class="sub-content-layout")
+        div(class="sub-content-header") 
+            span(class="mif-quote")
+            div(class="sub-content-header-msg") 모임일정을 만들어주세요
+            span(class="mif-quote reverse-x")
+        div(class="sub-content")
+            | 모임일정이 없어 활동을 할 수가 없어요.<br>
+            | 새로운 모임일정을 만들고 일정을 진행해보세요!<br><br>
+            | 모임을 만드려면 아래 일정만들기를 활용하세요.<br>
+    div(class="submit-bottom")
+        div(id="goto-new-schedule" class="submit-button" onclick="location.href='/schedule/new'") 일정만들기
+
+block scripts
+    //- script(src="/javascripts/schedule/schedule.js")

@@ -1,0 +1,54 @@
+doctype html
+html
+  head
+    title=title
+    meta(name="metro4:init" content=init)
+    meta(name="metro4:locale" content="ko-KR")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=no")
+    link(rel="preconnect" href="https://fonts.googleapis.com")
+    link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+    link(href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet")
+    script(src="/modules/jquery/dist/jquery.min.js")
+    script(src="/modules/mustache/mustache.min.js")
+    script(src="/modules/metro4-dist/js/metro.min.js") 
+    script(src="/javascripts/common.js")
+    script(src="/javascripts/login/login.js")
+    link(rel='stylesheet', href='/modules/metro4-dist/css/metro.min.css')
+    link(rel="stylesheet", href="/modules/metro4-dist/css/metro-icons.min.css")
+    link(rel="stylesheet", href="/modules/metro4-dist/css/metro-colors.min.css")
+    link(rel="stylesheet", href="/modules/metro4-dist/css/metro-animation.min.css")
+    link(rel='stylesheet', href='/stylesheets/common.css')
+    link(rel='stylesheet', href='/stylesheets/login.css')
+body
+    div(class="login-top")
+        div(class="top-title")
+    div(class="login-content")
+        div(class="login-content-top")
+            div(class="join-us")
+                | 아직 회원이 아니신가요?
+            div(id="btn-joinus" class="round-button")
+                | 회원가입
+        div(class="login-title")
+            | 로그인
+        form(id="login-form" method="post" action="/login")
+            div(class="login-required-field")
+                div(class="login-input-field")
+                    div(class="label")
+                        | 아이디
+                    div(class="login-field")
+                        input(class="id-input-field" type="text" id="id" name="id" maxlength="15" placeholder="아이디를 입력하세요")
+                div(class="login-input-field")
+                    div(class="label")
+                        | 비밀번호
+                    div(class="login-field")
+                        input(class="id-input-field" type="password" id="password" name="password" maxlength="20" placeholder="비밀번호를 입력하세요")
+                div(class="auto-login-option-layout")
+                    input(class="auto-login-option" type="checkbox" data-role="checkbox" data-caption="자동로그인" checked)
+                div(class="login-error-msg")
+                    | #{message}
+                div(id="login-button" class="login-button")
+                    div(class="inline-box")
+                        |  로그인
+            
+    div(class="login-bottom")
+        

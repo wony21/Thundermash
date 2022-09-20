@@ -1,0 +1,97 @@
+doctype html
+html
+  head
+    title=title
+    meta(name="metro4:init" content=init)
+    meta(name="metro4:locale" content="ko-KR")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=no")
+    link(rel="preconnect" href="https://fonts.googleapis.com")
+    link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+    link(href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet")
+    script(src="/modules/jquery/dist/jquery.min.js")
+    script(src="/modules/mustache/mustache.min.js")
+    script(src="/modules/metro4-dist/js/metro.min.js") 
+    script(src="/javascripts/common.js")
+    script(src="/javascripts/users/users.js")
+    link(rel='stylesheet', href='/modules/metro4-dist/css/metro.min.css')
+    link(rel="stylesheet", href="/modules/metro4-dist/css/metro-icons.min.css")
+    link(rel="stylesheet", href="/modules/metro4-dist/css/metro-colors.min.css")
+    link(rel="stylesheet", href="/modules/metro4-dist/css/metro-animation.min.css")
+    link(rel='stylesheet', href='/stylesheets/common.css')
+    link(rel='stylesheet', href='/stylesheets/join-us.css')
+body
+    div(class="top-div")
+        div(class="top-title")
+    div(class="sub-header")
+        div(class="sub-title") 회원가입
+    div(class="member-hello")
+        div(class="hello-text")
+            div(class="hello-text-sub")
+                | 안녕하세요. <br>
+                | 새로운 회원이 되시기 위해 방문 하신걸 환영합니다. <br>
+                | 우리는 서로 상호존중과 이해를 원칙으로 단합된 모임입니다. <br>
+                | 적응 참여의 의지가 강하고, 타인에게 불편함을 주지 않게 <br>
+                | 노력하는 마음 그 하나면 충분 합니다.<br>
+            div(class="hello-text-last")
+                | "모두 즐거운 배드민턴 모임을 만들어 갑시다!"
+            div(class="hello-text-sign")
+                | - 배드민턴모임회원일동 -
+    div(class="member-info-header")
+        | 회원정보입력
+    form(id="join-form" data-role="validator" method="post" action="member/add")
+        div(class="member-info-layout")
+            div
+                span(class="invalid-msg" data-target="username") 이름을 입력하세요.
+                div(class="input-field" data-target="username")
+                    div(class="label") *이름
+                    div(class="input-control")
+                        input(type="text" id="username" name="username" required)
+            div
+                span(class="invalid-msg" data-target="id") 아이디 영문자 조합 4자 이상으로 입력하세요.
+                div(class="input-field" data-target="id")
+                    div(class="label") *아이디
+                    div(class="input-control")
+                        input(type="text" id="id" name="id" required)
+                    div(class="check-msg" id="idcheck")
+            div
+                span(class="invalid-msg" data-target="password") 비밀번호를 입력하세요.
+                div(class="input-field" data-target="password")
+                    div(class="label") *비밀번호
+                    div(class="input-control")
+                        input(type="password" id="password" name="password" required)
+            div
+                span(class="invalid-msg" data-target="mobile") 휴대폰 번호를 입력하세요.
+                div(class="input-field" data-target="mobile")
+                    div(class="label") *휴대폰
+                    div(class="input-control")
+                        input(type="tel" id="mobile" name="mobile" maxlength="13" required)
+            div(class="input-field")
+                div(class="label") *성별
+                div(class="input-control")
+                    select(class="choice" id="gender" name="gender" required)
+                        option(value="M") 남성
+                        option(value="F") 여성
+            div(class="input-field")
+                div(class="label") 급수
+                div(class="input-control")
+                    select(class="choice" id="grade" name="grade" required)
+                        option(value="N") 없음
+                        option(value="F") 초심 (1년이하)
+                        option(value="A") A조
+                        option(value="B") B조
+                        option(value="C") C조
+                        option(value="D") D조
+                        option(value="S") S조
+            div(class="input-field")
+                div(class="label") 나이
+                div(class="input-control")
+                    select(class="choice" id="age" name="age" required)
+                        option(value="0") 없음
+                        option(value="50") 50대
+                        option(value="40") 40대
+                        option(value="30") 30대
+                        option(value="20") 20대 이하
+        div(class="join-us-bottom")
+            div(id="join-us-button" class="join-us-button") 회원가입
+        
+

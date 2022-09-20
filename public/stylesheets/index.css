@@ -1,0 +1,183 @@
+
+.exercise-day {
+    padding: 10px 10px 10px 10px;
+}
+
+.exercise-members {
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.exercies-member-list {
+    padding: 10px 10px 10px 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.join-confirm {
+    display: flex;
+    padding: 5px 15px 5px 10px;
+    background-color: rgb(242, 242, 242);
+    align-items: center;
+    justify-content: flex-end;
+
+}
+
+.exercise-button {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    width: 95px;
+    height: 28px;
+    margin-left: 5px;
+    font-weight: 700;
+}
+
+.exercise-join {
+    border: 1px solid rgb(0, 176, 240);
+    color: rgb(0, 176, 240);
+}
+
+.exercise-not-join {
+    border: 1px solid rgb(255, 0, 0);
+    color: rgb(255, 0, 0);
+}
+
+.exercise-attend {
+    border: 1px solid rgb(0, 176, 240);
+    background-color: rgb(0, 176, 240);
+    color: white;
+}
+
+.exercise-not-attend {
+    border: 1px solid rgb(255, 0, 0);
+    background-color: rgb(255, 0, 0);
+    color: white;
+}
+
+.guest-input-field > .input-control {
+    width: 75%;
+}
+
+.cus-info-box {
+    width: fit-content;
+    padding: 1px 5px 1px 5px;
+}
+
+.background-filter {
+    background-color: black;
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    opacity: 0.6;
+    z-index: 97;
+    display: none;
+}
+
+.guest-dialog {
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    width: 320px;
+    height: 400px;
+    z-index: 98;
+    display: none;
+}
+
+.guest-header {
+    padding: 15px;
+    font-weight: 700;
+}
+
+.guest-sub-header {
+    padding-left: 15px;
+    color: rgb(100, 100, 100);
+    font-size: 10pt;
+    margin-bottom: 10px;
+}
+
+.guest-content {
+    background-color: rgb(255, 255, 255);
+}
+
+.guest-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.guest-button {
+    border-radius: 10px;
+    border: 1px solid;
+    padding: 2px 5px 2px 5px;
+    font-size: 10pt;
+}
+
+.guest-input-field {
+    display: flex;
+    height: 50px;
+    align-items: center;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.guest-remove-button {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.category {
+    margin-top:20px;
+    padding:5px;
+}
+
+.category-header {
+    font-weight: 600;
+    color:rgb(100, 100, 100);
+    padding-left: 15px;
+}
+
+.category-url1 {
+    width: 100%;
+    height: 300px;
+    border: 1px solid;
+}
+
+.info-location-header {
+    font-size: 12pt;
+    padding-left: 5px 15px 5px 10px;
+    /* background-color: rgb(242, 242, 242); */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    font-weight: 600;
+}
+
+.address-info {
+    padding: 10px;
+}
+
+.address-info > .addess-info-group > .item {
+    font-size: 10pt;
+    margin-bottom: 5px;
+}
+
+.addess-info-group {
+    display: flex;
+}

@@ -1,0 +1,15 @@
+#add-group-button {
+    height: 80px;
+    border: rgb(150, 53, 53);
+    /* background-color: rgb(0, 97, 136); */
+    width: 100%;
+    border-style: dotted;
+    border-width: 1.5px;
+    border-radius: 8px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1em;
+    color:white;
+    display: inline-block;
+    justify-content: center;
+}

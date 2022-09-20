@@ -1,0 +1,46 @@
+/* map.css */
+
+.place-search-box {
+    padding: 20px;
+}
+
+.place-input-field {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid rgb(255, 200, 104);
+    border-radius: 25px;
+    width: 100%;
+    height: 50px;
+    padding-left: 18px;
+    padding-right: 18px;
+    margin-top: 10px;
+}
+
+.place-input-field > label {
+    width: 20%;
+}
+
+.place-input-field > input[type=text] {
+    width: 80%;
+}
+
+.place-input-field > .button {
+    background-color: white;
+}
+
+.place-result-select {
+    /* width: 95%; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.comment {
+    font-size: 10pt;
+    color: gray;
+}
+
+.search-result-comment {
+    
+}

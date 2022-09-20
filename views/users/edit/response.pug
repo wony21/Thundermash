@@ -1,0 +1,31 @@
+extends ../../layout3
+
+block header 
+  link(rel='stylesheet', href='/stylesheets/change-user.css')
+  link(rel='stylesheet', href='/stylesheets/urmem.css')
+
+block content
+    div(class="sub-header")
+        div(class="sub-title") 회원정보수정
+    div(class="joinus-message-box")
+        div(class="big-text")
+            | 회원의 정보수정이
+        div(class="sub-text")
+            | 정상적으로 완료 되었습니다!
+    div(class="member-info-layout")
+        div(class="info-box-field")
+            div(class="schedule-info")
+                p(class="name-text") #{userName}
+                p(class="sub-info-text") 아이디 : #{userId}
+                p(class="sub-info-text") 휴대폰 : #{mobile}
+                p(class="sub-info-text") 성별 : #{gender}
+                p(class="sub-info-text") 나이 : #{age}
+                p(class="sub-info-text") 급수 : #{grade}
+    div(class="submit-bottom")
+        div(id="goto-list-button" class="submit-button") 모임일정달력
+    div(style="height:50px;")
+block scripts
+    script(src="/javascripts/users/users.js")
+
+    
+

@@ -1,0 +1,146 @@
+@import url('https://cdn\.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
+
+body {
+    /* background-color: rgba(68, 114, 196, 255); */
+    background-color:rgb(128, 163, 176);
+    font-family: 'NanumSquare', sans-serif;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+}
+
+/************************************************
+* 상단 스타일
+*************************************************/
+
+.member-hello {
+    padding-top: 0px;
+    background-color: rgb(226, 240, 217);
+}
+
+.hello-text {
+    padding: 10px 10px 10px 10px;
+    color: black;
+    line-height: 150%;
+}
+
+.hello-text-sub {
+    font-size: 10pt;
+    font-weight: 400;
+}
+
+.hello-text-last {
+    padding-top: 20px;
+    font-size: 13pt;
+    text-align: center;
+    font-weight: 700;
+}
+
+.hello-text-sign {
+    padding-top: 20px;
+    text-align: center;
+}
+
+.member-info-header {
+    color: white;
+    padding-left: 5px;
+    font-weight: 700;
+    font-size: 15pt;
+    height: 38px;
+    display: flex;
+    align-items: center;
+}
+
+.member-info-layout {
+    background-color: rgb(235, 235, 235);
+    padding: 5% 5% 5% 5%;
+}
+
+.input-field {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid white;
+    background-color: white;
+    border-radius: 30px;
+    width: 100%;
+    height: 65px;
+    padding: 5px 5px 5px 5px;
+    margin-bottom: 15px;
+}
+
+.label {
+    font-size: 13px;
+    align-items: center;
+    font-weight: 900;
+    color: rgba(168, 188, 198, 255);
+    display: flex;
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 30%;
+}
+
+.input-control {
+    width: 60%;
+}
+
+input {
+    border: 0px;
+    color:rgb(128, 163, 176);
+    width: 100%;
+    /* background-color: aqua; */
+}
+input[type=password] {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+input[type=password]::placeholder {
+    font-family: 'NanumSquare', sans-serif;
+}
+input:focus { outline: none;}
+select:focus { outline: none;}
+.choice {
+    height: 45px;
+    border: 0px;
+    width: 100%;
+    color:rgb(128, 163, 176);
+}
+
+.join-us-bottom {
+    padding: 10px 10px 10px 10px;
+    height: 150px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.join-us-button {
+    background-color: rgb(255, 192, 0);
+    border-radius: 20px;
+    /* border-color: white;
+    border-width: 0.5px; */
+    border: 0px solid white;
+    padding: 5px 20px 5px 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 1em;
+    width: 180px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.display-error {
+    border: 1px solid rgb(212, 38, 38);
+}
+
+.invalid-msg {
+    color:  rgb(212, 38, 38);
+    padding-left: 15px;
+    text-align: left;
+    display: none;
+}
+
+.check-msg {
+    font-size: 9pt;
+    font-weight: 800;
+}

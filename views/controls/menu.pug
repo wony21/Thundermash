@@ -1,0 +1,18 @@
+aside(class="sidebar pos-absolute z-2" data-role="sidebar" data-toggle="#sidebar-toggle-3" id="sb3" data-shift=".shifted-content")
+    div(class="sidebar-header height-fix" data-image="images/sb-bg-1.jpg")
+      div(class="left-menu-top-mark")
+        <span class="mif-organization"></span>Thundermash
+      //- div(class="avatar")
+      //-   //- img(data-role="gravatar" data-email="sergey@pimenov.com.ua")
+      //-   span(class="title fg-blue") THM
+      //-   | MENU
+    ul(class="sidebar-menu")
+        <li><a><span class="mif-home icon"></span>처음으로</a></li>
+        <li><a href="/battles"><span class="mif-books icon"></span>모임관리</a></li>
+        <li><a><span class="mif-files-empty icon"></span>인원관리</a></li>
+        <li class="divider"></li>
+        <li><a><span class="mif-images icon"></span>참석관리</a></li>
+div(class="shifted-content h-100 p-ab")
+    div(id="app-menu" class="app-bar pos-absolute bg-red z-1" data-role="appbar")
+      button(class="app-bar-item c-pointer" id="sidebar-toggle-3")
+        span(class="mif-menu fg-white")

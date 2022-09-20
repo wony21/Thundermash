@@ -1,0 +1,20 @@
+extends ../layout
+
+block content
+    div(class="card image-header")
+        div(class="card-header bg-blue fg-white")
+            span(class="mif-broadcast mif-lg")
+            h3(class="fg-white") 새로운 모임이 생성되었습니다.
+        div(class="card-content p-2")
+            p(class="fg-gray") 아래의 정보를 확인 하세요.
+            h3 #{name} <br>
+            label 일시 : #{date} <br>
+            label 장소 : #{location} <br>
+            p(class="fg-gray") 
+                | 생성된 정보가 다른 경우에는 여기에서 수정을 하세요.
+                | 단, 동일한 장소와 시간에는 생성 할 수 없습니다.
+        div(class="card-footer")
+            button(class="button primary rounded" id="back-to-list") 목록으로 돌아가기
+            
+block scripts
+    script(src="/javascripts/battles/battles.js")

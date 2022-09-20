@@ -1,0 +1,29 @@
+
+.sub-error-title {
+    color: red;
+    font-weight: 700;
+}
+
+.error-info-layout {
+    background-color: rgb(245, 245, 245);
+    padding:10px;
+}
+
+.error-info-title {
+    font-weight: 700;
+    font-size: 12pt;
+    color:red;
+    border-radius: 10px;
+    height: 45px;
+    background-color: rgb(255, 217, 217);
+    padding: 10px;
+}
+
+.error-info-message {
+    background-color: white;
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    font-size: 11pt;
+}
+

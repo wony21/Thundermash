@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="schedule">
+    <select id="getSchedule">
+        SELECT ID as id,
+            SCH_NM as schNm,
+            DATE_FORMAT(SCH_DATE, '%Y-%m-%d %H:%i') as schDate,
+            SCH_LOC as schLoc,
+            MAX_ATT_LIMIT as maxAttLimit,
+            (select count(*) from tbl_attend where schid = a.id and attend_fg = '1') as attendCount,
+            (select count(*) from tbl_attend_guest where schid = a.id) as guestCount,
+            URL1_NM as url1Nm,
+            URL1 as url1,
+            URL2_NM as url2Nm,
+            URL2 as url2,
+            TEAM_TREE_URL as teamTreeUrl,
+            COORD_X as coordX,
+            COORD_Y as coordY,
+            ADDR_ROAD as addrRoad,
+            ADDR_PARCEL as addrParcel,
+            DATE_FORMAT(VOTE_DATE, '%Y-%m-%d %H:%i') as voteDate,
+            VOTE_DAYS as voteDays,
+            CREATOR as creator,
+            CREATETIME as createTime,
+            DATE_FORMAT(SCH_DATE, '%Y년 %m월 %d일 %H시%i분') as schDateFmt,
+            DATE_FORMAT(VOTE_DATE, '%Y년 %m월 %d일') as voteDateFmt
+        FROM tbl_schedule a
+        <where>
+            <if test="id != null and id != ''">
+                AND ID = #{id}
+            </if>
+            <if test="schNm != null and schNm != ''">
+                AND SCH_NM LIKE '%' || #{schNm} || '%'
+            </if>
+            <if test="schLoc != null and schLoc != ''">
+                AND SCH_LOC = #{schLoc}
+            </if>
+            <if test="schDate != null and schDate != ''">
+                AND SCH_DATE = #{schDate}
+            </if>
+            <if test="month != null and month != ''">
+                AND DATE_FORMAT(SCH_DATE, '%Y%m') = #{month}
+            </if>
+            <if test="nearDate != null and nearDate != ''">
+                AND SCH_DATE IN (SELECT MIN(SCH_DATE) FROM tbl_schedule WHERE SCH_DATE >= #{nearDate})
+            </if>
+            <if test="userId != null and userId != ''">
+                AND CREATOR = #{userId}
+            </if>
+        </where>
+        ORDER BY SCH_DATE ASC
+    </select>
+    <insert id="addSchedule">
+        INSERT INTO thundermash.tbl_schedule 
+        (SCH_NM, SCH_DATE, SCH_LOC, MAX_ATT_LIMIT, 
+        URL1_NM, URL1, URL2_NM, URL2, TEAM_TREE_URL, VOTE_DATE, VOTE_DAYS,
+        CREATOR, COORD_X, COORD_Y, ADDR_ROAD, ADDR_PARCEL)
+        VALUES (
+        #{schNm}, #{schDate}, #{schLoc}, ${maxAttLimit},
+        #{url1Nm}, #{url1}, #{url2Nm}, #{url2}, #{teamTreeUrl},
+        DATE_ADD(#{schDate}, INTERVAL ${voteDays} DAY),
+        #{voteDays}, #{creator}, #{coordX}, #{coordY}, #{addrRoad}, #{addrParcel})
+    </insert>
+    <update id="updateSchedule">
+        UPDATE thundermash.tbl_schedule
+        SET
+            SCH_NM = #{schNm},
+            SCH_DATE = #{schDate},
+            SCH_LOC = #{schLoc},
+            URL1_NM = #{url1Nm},
+            URL1 = #{url1},
+            URL2_NM = #{url2Nm},
+            URL2 = #{url2},
+            MAX_ATT_LIMIT = ${maxAttLimit},
+            TEAM_TREE_URL = #{teamTreeUrl},
+            VOTE_DATE = DATE_ADD(#{schDate}, INTERVAL ${voteDays} DAY),
+            VOTE_DAYS = #{voteDays},
+            COORD_X = ${coordX},
+            COORD_Y = ${coordY},
+            ADDR_ROAD = #{addrRoad},
+            ADDR_PARCEL = #{addrParcel}
+        WHERE ID = #{id}
+    </update>
+    <delete id="deleteSchedule">
+        DELETE from thundermash.tbl_schedule
+        WHERE ID = #{id}
+    </delete>
+
+
+    
+

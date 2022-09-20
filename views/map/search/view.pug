@@ -1,0 +1,24 @@
+extends ../../layout2 
+
+block header 
+    script(type="text/javascript" src="http://map.vworld.kr/js/vworldMapInit.js.do?version=2.0&apiKey=08AE37FC-AFF6-3C19-B6D0-8810E24EA166")
+    link(rel='stylesheet', href='/stylesheets/map.css')
+
+block content
+    div(class="sub-header")
+        div(class="sub-title") 모임장소
+    div(class="place-search-box")
+        div(class="place-input-field")
+            input(type="text" id="location" placeholder="장소명을 입력하세요.")
+            div(id="search-button" class="button")
+                span(class="mif-search")
+        div(class="search-result-comment" id="support-comment")
+        div(class="place-input-field")
+            div(id="place-result-select" class="place-result-select")
+                //- span(class="mif-spinner5 ani-spin")
+                div(class="comment") 검색결과를 여기에서 확인하세요
+    div(id="vmap")
+    div(id="address-road" class="item")
+    div(id="address-parcel" class="item")
+block scripts
+    script(src="/javascripts/map/map.js")

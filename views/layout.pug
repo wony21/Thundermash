@@ -1,0 +1,36 @@
+doctype html
+html
+  head
+    title=title
+    meta(name="metro4:init" content=init)
+    meta(name="metro4:locale" content="ko-KR")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=no")
+    link(rel="preconnect" href="https://fonts.googleapis.com")
+    link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+    link(href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet")
+    script(src="/modules/jquery/dist/jquery.min.js")
+    script(src="/modules/mustache/mustache.min.js")
+    script(src="/modules/metro4-dist/js/metro.min.js")
+    script(src="/modules/date-utils/lib/date-utils.min.js")
+    script(src="/javascripts/common.js")
+    link(rel='stylesheet', href='/modules/metro4-dist/css/metro.min.css')
+    link(rel="stylesheet", href="/modules/metro4-dist/css/metro-icons.min.css")
+    link(rel="stylesheet", href="/modules/metro4-dist/css/metro-colors.min.css")
+    link(rel="stylesheet", href="/modules/metro4-dist/css/metro-animation.min.css")
+    link(rel='stylesheet', href='/stylesheets/common.css')
+  block header
+  body
+    include controls/menu.pug
+    #container
+      #title
+        .grid 
+          .row 
+            .cell-1
+              span(class="mif-organization fg-white mif-lg")
+            .cell-4
+              p(class="very-small-text")
+              | In badminton, 
+            .cell-6
+              h3 Thundermash
+    block content
+    block scripts

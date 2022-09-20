@@ -1,0 +1,79 @@
+extends ../../layout3
+
+block header 
+  link(rel='stylesheet', href='/stylesheets/change-user.css')
+
+block content
+    div(class="sub-header")
+        div(class="sub-title") 회원정보수정
+    form(id="update-form" action="/users/change" method="post") 
+        div(class="member-info-layout")
+            div(class="input-field no-margin" data-target="userid")
+                div(class="label") 아이디
+                div(class="value-field") 
+                    input(type="label" id="userid" name="userid" value=`${userId}` readonly)
+        div(class="msg-1 fg-color-gy2")
+            | 아이디는 변경이 불가능 합니다.
+        div(class="member-info-layout")
+            div
+                span(class="invalid-msg" data-target="username") 이름을 입력하세요.
+                div(class="input-field" data-target="username")
+                    div(class="label") 이름
+                    div(class="input-control")
+                        input(type="text" id="username" name="username" value=`${userName}` required)
+            div
+                span(class="invalid-msg" data-target="changePassword") 비밀번호를 입력하세요.
+                div(class="input-field" data-target="changePassword")
+                    div(class="label") 비밀번호
+                    div(class="input-control")
+                        input(type="password" id="changePassword" name="changePassword" placeholder="변경할 경우에만 입력하세요.")
+            div 
+                span(class="invalid-msg" data-target="mobile") 휴대폰 번호를 입력하세요.
+                div(class="input-field" data-target="mobile")
+                    div(class="label") 휴대폰
+                    div(class="input-control")
+                        input(type="tel" id="mobile" name="mobile" value=`${mobile}` maxlength="13" required)
+            div(class="input-field")
+                div(class="label") 성별
+                div(class="input-control")
+                    select(class="choice" id="gender" name="gender" data-value=`${gender}` required)
+                        option(value="M") 남성
+                        option(value="F") 여성
+            div(class="input-field")
+                div(class="label") 급수
+                div(class="input-control")
+                    select(class="choice" id="grade" name="grade" data-value=`${grade}` required)
+                        option(value="N") 없음
+                        option(value="F") 초심 (1년이하)
+                        option(value="A") A조
+                        option(value="B") B조
+                        option(value="C") C조
+                        option(value="D") D조
+                        option(value="S") S조
+            div(class="input-field")
+                div(class="label") 나이
+                div(class="input-control")
+                    select(class="choice" id="age" name="age" data-value=`${age}` required)
+                        option(value="0") 없음
+                        option(value="50") 50대
+                        option(value="40") 40대
+                        option(value="30") 30대
+                        option(value="20") 20대 이하
+        div(class="msg-1 fg-color-gy2")
+            | 회원정보인증을 위해 기존 비밀번호를 입력 해주세요.
+        div(class="member-info-layout")
+            span(class="invalid-msg" data-target="password") 비밀번호를 입력하세요.
+            div(class="input-field no-margin" data-target="password")
+                div(class="label") 기존비밀번호
+                div(class="input-control")
+                    input(type="password" id="password" name="password" required)
+        div(class="join-us-bottom")
+            div(id="change-user-button" class="join-us-button bg-color-yw2") 회원정보수정
+        div(class="join-us-bottom")
+            div(id="member-out-button" class="join-us-button bg-color-gy2") 회원탈퇴
+        div(style="height:50px;")
+block scripts
+    script(src="/javascripts/users/users.js")
+
+    
+

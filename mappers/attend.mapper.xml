@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="attend">
+    <select id="getAttend">
+        SELECT 'L' as tp,
+            NULL as userName,
+            MAX_ATT_LIMIT as attendFg 
+        FROM TBL_SCHEDULE
+        WHERE ID = #{schId}
+        UNION ALL
+        SELECT 'M' AS tp, 
+            USERNAME as userName, 
+            ATTEND_FG as attendFg
+        FROM TBL_USERS A
+        LEFT OUTER JOIN TBL_ATTEND B
+        ON A.USERID = B.USERID
+        AND B.SCHID = #{schId}
+        UNION ALL
+        SELECT 'G' AS TP, GUEST_NM, '1' AS ATTEND_FG
+        FROM TBL_ATTEND_GUEST
+        WHERE SCHID = #{schId}
+        ORDER BY TP, USERNAME
+    </select>
+    <select id="getMyAttend">
+        SELECT ATTEND_FG as attendFg
+        FROM TBL_ATTEND
+        WHERE SCHID = #{schId}
+          AND USERID = #{userId}
+    </select>
+    <select id="getGeustAttend">
+        SELECT A.SCHID as schId, 
+               A.GUEST_NM as guestNm, 
+               DATE_FORMAT(A.ATT_REG_DT, '%Y-%m-%d %H:%i') as attRegDt, 
+               A.USERID as userId, 
+               A.GRADE as grade, 
+               A.AGE as age, 
+               A.GENDER as gender,
+               B.USERNAME as userNm
+        FROM tbl_attend_guest a
+        LEFT OUTER JOIN tbl_users b
+        ON A.USERID = B.USERID
+        <where>
+            <if test="schId != null and schId != ''">
+                AND A.SCHID = #{schId}
+            </if>
+            <if test="guestNm != null and guestNm != ''">
+                AND A.GUEST_NM = #{guestNm}
+            </if>
+            <if test="userId != null and userId != ''">
+                AND A.USERID = #{userId}
+            </if>
+        </where>
+    </select>
+    <insert id="upsertAttend">
+        INSERT INTO tbl_attend (SCHID, USERID, ATTEND_FG, ATT_REG_DT)
+        VALUES (#{schId}, #{userId}, ${attendFg}, CURRENT_TIMESTAMP())
+        ON DUPLICATE KEY
+        UPDATE ATTEND_FG = ${attendFg}, ATT_REG_DT = CURRENT_TIMESTAMP()
+    </insert>
+    <insert id="insertAttendGuest">
+        INSERT INTO tbl_attend_guest(SCHID, GUEST_NM, ATT_REG_DT, USERID, GRADE, AGE, GENDER)
+        VALUES (#{schId}, #{guestNm}, CURRENT_TIMESTAMP(), #{userId}, #{grade}, ${age}, #{gender})
+    </insert>
+    <delete id="deleteAttendGuest">
+        DELETE FROM tbl_attend_guest
+        WHERE SCHID = #{schId}
+          AND GUEST_NM = #{guestNm}
+          AND USERID = #{userId}
+    </delete>
+    

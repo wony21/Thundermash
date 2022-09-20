@@ -1,0 +1,155 @@
+@import url('https://cdn\.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
+
+body {
+    /* background-color: rgba(68, 114, 196, 255); */
+    background-color: #44546A;
+    font-family: 'NanumSquare', sans-serif;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+}
+
+/************************************************
+* 상단 스타일
+*************************************************/
+.login-top {
+    background-color: #44546A;
+    height: 55px;
+    vertical-align: middle;
+}
+
+.top-title {
+    color: white;
+    /* font-size: 1.5em;
+    text-align: right; */
+    background-image: url('/images/top-title.png');
+    background-position: right;
+    background-repeat: no-repeat;
+    height: 41.5px;
+    background-size: contain;
+    /* padding-top: 20px; */
+}
+
+/************************************************
+* 로그인 영역
+*************************************************/
+.login-content {
+    background-color: rgba(68, 114, 196, 255);
+    padding: 10px 10px 40px 10px;
+    /* height: 250px; */
+}
+
+.join-us {
+    /* height: 30px; */
+    color: white;
+    width: fit-content;
+    font-size: 11px;
+    padding-right: 15px;
+}
+
+.login-content-top {
+    /* align-items: center; */
+    display: flex;
+    flex-direction: row;
+    float: right;
+    z-index: 2;
+}
+
+.round-button {
+    background-color: transparent;
+    border-radius: 15px;
+    /* border-color: white;
+    border-width: 0.5px; */
+    border: 1px solid white;
+    width: fit-content;
+    padding: 5px 20px 5px 20px;
+    color: white;
+    /* font-weight: bold; */
+    font-size: 10pt;
+}
+
+.login-title {
+    padding-top: 20%;
+    font-size: 3.5em;
+    color: white;
+    text-shadow: 2px 2px 2px #44546A;
+    text-align: center;
+    z-index: 1;
+}
+
+/***** ID *******/
+.login-required-field {
+    padding-top: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+    text-align: center;
+    width: 100%;
+    /* padding: 20px 20px 20px 20px; */
+}
+
+.label {
+    font-size: 13px;
+    align-items: center;
+    font-weight: 900;
+    color: rgba(168, 188, 198, 255);
+    display: flex;
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 90px;
+}
+
+.login-field {
+    width:80%;
+}
+
+.login-input-field {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid white;
+    background-color: white;
+    border-radius: 30px;
+    width: 100%;
+    height: 65px;
+    padding: 5px 5px 5px 5px;
+    margin-bottom: 15px;
+}
+
+.id-input-field {
+    border: 0px solid white;
+    color:#44546A;
+    width:100%;
+    padding-right: 15px;
+}
+
+.auto-login-option-layout { display: table; }
+
+.auto-login-option { color: white; }
+
+.login-button { 
+    margin-top: 50px;
+    border: 1px solid white;
+    border-radius: 25px;
+    height: 50px;
+    color: white;
+    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type=password] {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+input[type=password]::placeholder {
+    font-family: 'NanumSquare', sans-serif;
+}
+
+input:focus { outline: none;}
+
+
+.login-error-msg {
+    color: rgb(255, 150, 150);
+    margin-top: 10px;
+}
+

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="users">
+    <select id="getUsers">
+        SELECT 
+            USERID as userId,
+            USERNAME as userName,
+            PASSWORD as password,
+            MOBILE as mobile,
+            GENDER as gender,
+            GRADE as grade,
+            AGE as age,
+            date_format(CREATE_TIME, '%Y-%m-%d %H:%i') as createTime
+        FROM TBL_USERS
+        <where>
+            <if test="userId != null and userId != ''">
+                AND USERID = #{userId}
+            </if>
+            <if test="password != null and password != ''">
+                AND PASSWORD = #{password}
+            </if>
+            <if test="userName != null and battleName != ''">
+                AND USERNAME LIKE '%' || #{userName} || '%'
+            </if>
+        </where>
+        ORDER BY USERID DESC
+    </select>
+    <select id="getUserInfo">
+        SELECT USERID as userId,
+            USERNAME as userName,
+            MOBILE as mobile,
+            CASE 
+                WHEN GENDER = 'M' THEN '남성'
+                ELSE '여성' 
+            END as gender,
+            CASE
+                WHEN GRADE = 'N' THEN '없음'
+                WHEN GRADE = 'F' THEN '초심'
+                ELSE CONCAT(GRADE, '조')
+            END as grade,
+            CASE
+                WHEN AGE = '0' THEN '없음'
+                WHEN AGE = '20' THEN '20대이하'
+                ELSE concat(AGE, '대')
+            END as age,
+            date_format(CREATE_TIME, '%Y년 %m월 %d일') as dateFmtStr,
+            date_format(CREATE_TIME, '%Y년 %m월 %d일 %H시 %i분 %s초') as registerDateFmt
+        FROM
+            TBL_USERS
+        <where>
+            <if test="userId != null and userId != ''">
+                AND USERID = #{userId}
+            </if>
+            <if test="userName != null and battleName != ''">
+                AND USERNAME LIKE '%' || #{userName} || '%'
+            </if>
+        </where>
+        ORDER BY USERID DESC
+    </select>
+    <insert id="addUser">
+        INSERT INTO thundermash.tbl_users
+            (USERID,
+            USERNAME,
+            PASSWORD,
+            MOBILE,
+            GENDER,
+            GRADE,
+            AGE)
+        VALUES
+            (#{userId},
+            #{userName},
+            #{password},
+            #{mobile},
+            #{gender},
+            #{grade},
+            #{age})
+    </insert>
+    <update id="updateUser">
+        UPDATE thundermash.tbl_users
+        SET
+            USERNAME = #{userName},
+        <if test="changePassword != null and changePassword != ''">
+            PASSWORD = #{changePassword},
+        </if>
+            MOBILE = #{mobile},
+            GENDER = #{gender},
+            GRADE = #{grade},
+            AGE = #{age}
+        WHERE USERID = #{userId}
+    </update>
+    <delete id="deleteUser">
+        DELETE thundermash.tbl_users
+        WHERE USERID = #{userId}
+    </delete>
+
+
+    
+

@@ -1,0 +1,61 @@
+extends ../../layout2 
+
+block header 
+    link(rel='stylesheet', href='/stylesheets/schedule.css')
+    link(rel='stylesheet', href='/stylesheets/custom.css')
+
+block content
+    div(class="sub-header")
+        div(class="sub-title") 모임일정
+    div(class="member-info-layout")
+        div(class="info-item")
+            div(class="item-title") 
+                span(class="mif-calendar")
+                | &nbsp;모임일정달력
+        div(class="info-item")
+            div(id="schedule-calendar" class="schedule-calendar" 
+                        data-role="calendar" 
+                        data-preset="true" 
+                        data-exclude="true" 
+                        data-show-header="false" 
+                        data-show-footer="false"
+                        data-on-month-change="changeMonth"
+                        data-cls-selected="bg-white fg-black")
+        div(class="info-sub-item")
+            div(class="box")
+                div(class="today-box color-green")
+                div(class="") 오늘
+            div(class="box")
+                div(class="today-box color-blue")
+                    span(class="mif-checkmark fg-white")
+                div(class="") 정기모임
+    div(class="schedule-card-list" id="schedule-card-list")
+        script(id="template" type="x-tmpl-mustache")
+            | {{#list}}
+            div(class="schedule-info-card" id="schedule-info-card" data-id=`{{id}}`)
+                div(class="schedule-info-card-content")
+                    div(class="schedule-info-title") {{schLoc}}
+                    div(class="schedule-info-sub-title") {{schDateFmt}}
+                div(class="schedule-info-card-footer")
+                    div(class="schedule-info-middle-title") {{schNm}}
+                    div(class="schedule-info-middle-title") 참석인원 : {{totalAttCount}}명/{{maxAttLimit}}명
+                div(class="schedule-info-card-buttons")
+                    div(class="button alert rounded" id="delete-schedule-button") 삭제하기
+                    div(class="button success rounded" id="modify-schedule-button") 수정하기
+            | {{/list}}
+            | {{^list}}
+            div(class="schedule-info-card")
+                div(class="schedule-info-card-content")
+                    div(class="schedule-info-middle-title") 일정이 없습니다.
+            | {{/list}}
+    div(id="popup-tools-background" class="popup-tools-background")
+    div(class="confirm-dlg" id="delete-confirm")
+        div(class="confirm-dlg-header")
+            | 모임삭제확인
+        div(class="confirm-dlg-content")
+            | 모임을 삭제하시겠습니까?
+        div(class="confirm-dlg-footer")
+            div(class="button primary rounded" id="delete-confirm-button") 네, 삭제합니다.
+            div(class="button rounded" id="delete-cancel-button") 아니요
+block scripts
+    script(src="javascripts/schedule/schedule.js")
