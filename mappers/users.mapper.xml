@@ -11,7 +11,7 @@
             GRADE as grade,
             AGE as age,
             date_format(CREATE_TIME, '%Y-%m-%d %H:%i') as createTime
-        FROM TBL_USERS
+        FROM tbl_users
         <where>
             <if test="userId != null and userId != ''">
                 AND USERID = #{userId}
@@ -46,7 +46,7 @@
             date_format(CREATE_TIME, '%Y년 %m월 %d일') as dateFmtStr,
             date_format(CREATE_TIME, '%Y년 %m월 %d일 %H시 %i분 %s초') as registerDateFmt
         FROM
-            TBL_USERS
+            tbl_users
         <where>
             <if test="userId != null and userId != ''">
                 AND USERID = #{userId}
@@ -58,7 +58,7 @@
         ORDER BY USERID DESC
     </select>
     <insert id="addUser">
-        INSERT INTO thundermash.tbl_users
+        INSERT INTO tbl_users
             (USERID,
             USERNAME,
             PASSWORD,
@@ -76,7 +76,7 @@
             #{age})
     </insert>
     <update id="updateUser">
-        UPDATE thundermash.tbl_users
+        UPDATE tbl_users
         SET
             USERNAME = #{userName},
         <if test="changePassword != null and changePassword != ''">
@@ -89,7 +89,7 @@
         WHERE USERID = #{userId}
     </update>
     <delete id="deleteUser">
-        DELETE thundermash.tbl_users
+        DELETE tbl_users
         WHERE USERID = #{userId}
     </delete>
 

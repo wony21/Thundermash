@@ -11,7 +11,7 @@
         SELECT 'M' AS tp, 
             USERNAME as userName, 
             ATTEND_FG as attendFg
-        FROM TBL_USERS A
+        FROM tbl_users A
         LEFT OUTER JOIN TBL_ATTEND B
         ON A.USERID = B.USERID
         AND B.SCHID = #{schId}
