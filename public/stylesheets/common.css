@@ -278,6 +278,7 @@ select:focus { outline: none;}
     border: 0px;
     width: 100%;
     color:rgb(128, 163, 176);
+    background-color: white;
 }
 
 .submit-bottom {
