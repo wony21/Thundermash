@@ -68,7 +68,7 @@ fnCommon = {
         } else {
             //console.log('open menu');
             $('.menu-bar').animate({
-                height: '240px',
+                height: '320px',
                 display: 'flex',
             }).show();
         }

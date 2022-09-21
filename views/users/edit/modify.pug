@@ -36,13 +36,13 @@ block content
             div(class="input-field")
                 div(class="label") 성별
                 div(class="input-control")
-                    select(class="choice" id="gender" name="gender" data-value=`${gender}` required)
+                    select(class="choice" id="gender" name="gender" data-value=`${gender}` value=`${gender}` required)
                         option(value="M") 남성
                         option(value="F") 여성
             div(class="input-field")
                 div(class="label") 급수
                 div(class="input-control")
-                    select(class="choice" id="grade" name="grade" data-value=`${grade}` required)
+                    select(class="choice" id="grade" name="grade" data-value=`${grade}` value=`${grade}` required)
                         option(value="N") 없음
                         option(value="F") 초심 (1년이하)
                         option(value="A") A조
@@ -53,7 +53,7 @@ block content
             div(class="input-field")
                 div(class="label") 나이
                 div(class="input-control")
-                    select(class="choice" id="age" name="age" data-value=`${age}` required)
+                    select(class="choice" id="age" name="age" data-value=`${age}` value=`${age}` required)
                         option(value="0") 없음
                         option(value="50") 50대
                         option(value="40") 40대
