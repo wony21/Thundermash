@@ -1,0 +1,37 @@
+extends ../../layout3
+
+block header 
+  link(rel='stylesheet', href='/stylesheets/userlist.css')
+
+block content
+    div(class="sub-header")
+        div(class="sub-title") 회원목록
+    div(class="member-info-layout")
+        div(class="summary-container")
+            div(class="summary-header") 회원현황
+            div(class="summary-box")
+                div(class="total-summary" id="total-count") 
+                div(class="male-summary" id="male-count")  
+                div(class="female-summary" id="female-count")
+        //- div(class="summary-container")
+        //-     div(class="summary-header") 회원현황
+        //-     div(class="summary-box")
+        div(class="member-info-container" id="member-info-container")
+        script(id="template" type="x-tmpl-mustache")
+            | {{#list}}
+            div(class="member-info-box")
+                div(class="member-index-box")
+                    span(class="mif-{{genderCode}}")
+                div(class="member-info-content")
+                    div(class="member-info-text") {{userName}}
+                    div(class="member-info-sub-text") {{mobile}}
+                    div(class="member-info-sub-text") {{gender}} {{grade}} {{age}}
+                    div(class="member-info-sub-text") 가입일시 {{registerDateFmt}}
+            | {{/list}}
+            | {{^list}}
+            div(class="info-msg") 회원정보가 없습니다.
+            | {{/list}}
+    
+block scripts
+    script(src="/javascripts/users/userlist.js")
+

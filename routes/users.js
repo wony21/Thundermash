@@ -3,7 +3,7 @@ var router = express.Router();
 const userService = require('../service/users/users.service');
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  res.render('users/search/list', {});
 });
 
 router.get('/change', async function(req, res, next) {
@@ -20,6 +20,13 @@ router.get('/change/result', async (req, res, next) => {
   console.log(userObj);
   res.render('users/edit/response', userObj);
 });
+
+router.get('/v1/get', async (req, res, next) => {
+  var obj = await userService.getUserList();
+  res.status(200).send(obj);
+});
+
+
 
 router.post('/change', async (req, res, next) => {
   console.log('-- request user change --');
@@ -81,6 +88,8 @@ router.post('/change/test', async (req, res, next) => {
     res.status(500).json({ msg: error.message });
   }
 });
+
+
 
 
 

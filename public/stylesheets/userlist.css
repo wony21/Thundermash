@@ -1,0 +1,88 @@
+
+.member-info-layout {
+    background-color: rgb(245, 245, 245);
+    padding: 15px;
+}
+
+.summary-container {
+    border-radius: 10px;
+    background-color: rgb(199, 199, 199);
+    padding: 5px; 
+    margin-top:5px;
+}
+
+.summary-box {
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.summary-header {
+    color: white;
+    font-weight: 700;
+    font-size: 13pt;
+}
+
+.total-summary {
+    background-color: cornflowerblue;
+    font-size: 12pt;
+    border-radius: 5px;
+    padding: 5px;
+    color: white;
+    margin-right: 5px;
+}
+
+.male-summary {
+    border-radius: 5px;
+    background-color: darkolivegreen;
+    font-size: 12pt;
+    padding: 5px;
+    color: white;
+    margin-right: 5px;
+}
+
+.female-summary {
+    background-color: palevioletred;
+    font-size: 12pt;
+    border-radius: 5px;
+    padding: 5px;
+    color: white;
+    margin-right: 5px;
+}
+
+.member-info-box {
+    display: flex;
+    align-items: flex-start;
+    background-color: rgb(171, 203, 233);
+    border-radius: 30px;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+.member-index-box {
+    color:rgb(100, 100, 100);
+    /* background-color: white; */
+    border: 3px solid rgb(245, 245, 245);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    font-size: 15pt;
+    font-weight: 700;
+    margin-right: 10px;
+}
+
+.member-info-text {
+    font-size: 13pt;
+    font-weight: 700;
+    color: white;
+}
+
+.member-info-sub-text {
+    font-size: 10pt;
+    font-weight: 400;
+    color: white;
+}

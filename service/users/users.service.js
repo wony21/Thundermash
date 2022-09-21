@@ -105,6 +105,21 @@ exports.getUserInfo = async function (userId, userName) {
     return userInfo;
 }
 
+exports.getUserList = async function() {
+    try {
+        var mysql = await db.connection();
+        var param = {
+            
+        };
+        const sqlText = mapper.getStatement('users', 'getUserInfo', param, {});
+        let [rows, fields] = await mysql.query(sqlText);
+        mysql.end();
+        return { ret: true, data: rows };
+    } catch (error) {
+        return { ret: false, message: error.message };
+    }
+}
+
 exports.updateUserInfo = async function (obj) {
     var mysql = await db.connection();
     const sqlText = mapper.getStatement('users', 'updateUser', obj, {});

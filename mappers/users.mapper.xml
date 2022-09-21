@@ -23,7 +23,7 @@
                 AND USERNAME LIKE '%' || #{userName} || '%'
             </if>
         </where>
-        ORDER BY USERID DESC
+        ORDER BY USERNAME ASC
     </select>
     <select id="getUserInfo">
         SELECT USERID as userId,
