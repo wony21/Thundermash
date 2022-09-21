@@ -182,3 +182,8 @@
 .addess-info-group {
     display: flex;
 }
+
+#vmap {
+    width: 100%;
+    height: 205px !important;
+}
