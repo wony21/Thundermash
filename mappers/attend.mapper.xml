@@ -5,19 +5,19 @@
         SELECT 'L' as tp,
             NULL as userName,
             MAX_ATT_LIMIT as attendFg 
-        FROM TBL_SCHEDULE
+        FROM tbl_schedule
         WHERE ID = #{schId}
         UNION ALL
         SELECT 'M' AS tp, 
             USERNAME as userName, 
             ATTEND_FG as attendFg
         FROM tbl_users A
-        LEFT OUTER JOIN TBL_ATTEND B
+        LEFT OUTER JOIN tbl_attend B
         ON A.USERID = B.USERID
         AND B.SCHID = #{schId}
         UNION ALL
         SELECT 'G' AS TP, GUEST_NM, '1' AS ATTEND_FG
-        FROM TBL_ATTEND_GUEST
+        FROM tbl_attend_guest
         WHERE SCHID = #{schId}
         ORDER BY TP, USERNAME
     </select>

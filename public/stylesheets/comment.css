@@ -1,0 +1,39 @@
+
+.comment-layout {
+    padding: 10px;
+}
+
+.comment-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: rgb(185, 164, 164);
+    color: white;
+    height: 38px;
+    margin-top: 10px;
+    padding-top: 5px;
+}
+
+.header-text {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.comment-content {
+    background-color: rgb(245, 245, 245);
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.comment-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.reverse-xy {
+    transform: scaleX(-1) scaleY(-1);
+}

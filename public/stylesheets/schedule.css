@@ -331,9 +331,9 @@ select:focus { outline: none;}
 .confirm-dlg {
     background-color: white;
     position: absolute;
-    top: 50%;
+    /* top: 50%; */
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%);
     border-radius: 15px;
     width: 320px;
     /* height: 480px; */

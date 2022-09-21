@@ -15,6 +15,7 @@ var meetingApiRouter = require('./routes/api/meeting.api');
 var scheduleApiRouter = require('./routes/api/schedule.api');
 var attendApiRouter = require('./routes/api/attend.api');
 var mapApiRouter = require('./routes/api/map.api');
+var pictureApiRouter = require('./routes/api/picture.api');
 
 var app = express();
 
@@ -79,6 +80,7 @@ app.use('/battles', battlesApiRouter);
 app.use('/schedule', scheduleApiRouter);
 app.use('/attend', attendApiRouter);
 app.use('/map', mapApiRouter);
+app.use('/picture', pictureApiRouter);
 
 
 // catch 404 and forward to error handler

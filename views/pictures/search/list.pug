@@ -1,0 +1,17 @@
+extends ../../layout2 
+
+block header 
+    link(rel='stylesheet', href='/stylesheets/comment.css')
+
+block content
+    div(class="comment-layout")
+        div(class="comment-header")
+            span(class="mif-quote")
+            div(class="header-text") 페이지 작업 중 입니다
+            span(class="mif-quote reverse-xy")
+        div(class="comment-content")
+            | 사진을 올려 추억을 다같이 공유 하는 공간이예요.<br>
+            | 가까운 시일에 완성 되오니 조금만 기다려 주세요.
+        div(class="comment-footer")
+            div(id="goto-back-button" class="submit-button" onclick='history.back()') 돌아기기
+block scripts

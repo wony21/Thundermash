@@ -25,10 +25,18 @@ function initEvent() {
     $('#guest-attend-button').on('click', fnObj.attendGuest);
     // 게스트 신청삭제
     $('#guest-remove-button').on('click', fnObj.removeGuest);
+
+    $(window).on('scroll touchmove mousewheel', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+    });
 }
 
 function initView() {
     fnObj.initCheck();
+    fnObj.lockScroll('.background-filter');
+    fnObj.lockScroll('#guest-attend-dialog');
     fnObj.getScheduleAttend();
     fnPlaceObj.initMap();
 }
@@ -170,9 +178,18 @@ fnObj = {
 
         });
     },
+    lockScroll: function(id) {
+        $(id).on('scroll touchmove mousewheel', function(e){
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        });
+    },
     showBackgroundLock: function(visible) {
         if (visible) {
-            $('.background-filter').css('display', 'flex');
+            //$('.background-filter').css('display', 'flex');
+            $('.background-filter').css('top', window.pageYOffset);
+            $('.background-filter').css('display', 'block');
         } else {
             $('.background-filter').css('display', 'none');
         }
@@ -181,6 +198,12 @@ fnObj = {
         var speed = 200;
         fnObj.initGuestDialog();
         $('#guest-attend-dialog').css('height', '360px');
+        var windowHeight = $(window).height();
+        //var dlgHeight = $('#guest-attend-dialog').height();
+        var dlgHeight = 360;
+        var topPosition = (windowHeight/2) - (dlgHeight/2) + window.pageYOffset;
+        console.log(`windowHeight: ${windowHeight} dlgHeight: ${dlgHeight} pageYOffset: ${window.pageYOffset} topPos: ${topPosition}`);
+        $('#guest-attend-dialog').css('top', topPosition);
         $('#guest-attend-dialog').fadeIn(speed);
         fnObj.showBackgroundLock(true);
     },

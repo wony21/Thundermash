@@ -57,27 +57,27 @@ body {
 }
 
 .big-text {
-    font-size: 24pt;
+    font-size: 16pt;
     color:black;
     font-weight: 700;
 }
 
 .sub-text {
-    font-size: 20pt;
+    font-size: 13pt;
     color: black;
     font-weight: 400;
 }
 
 .name-text {
-    font-size: 20pt;
+    font-size: 15pt;
     color:black;
     font-weight: 700;
 }
 
 .sub-info-text {
-    font-size: 16pt;
+    font-size: 12pt;
     color:black;
-    font-weight: 700;
+    /* font-weight: 700; */
 }
 
 .join-us-bottom {
