@@ -173,20 +173,21 @@ fnView = {
     userInfoBind: function () {
         var gender = $('#gender').data('value');
         $('#gender').children(`option[value='${gender}']`).each((i, o) => {
-            $(o).attr('selected', 'selected');
+            $(o).prop('selected', true);
         });
-        $('#gender').removeAttr('data-value');
+        $('#gender').val(gender);
+        // $('#gender').removeAttr('data-value');
 
         var grade = $('#grade').data('value');
         $('#grade').children(`option[value='${grade}']`).each((i, o) => {
-            $(o).attr('selected', 'selected');
+            $(o).prop('selected', true);
         });
-        $('#grade').removeAttr('data-value');
+        // $('#grade').removeAttr('data-value');
 
         var age = $('#age').data('value');
         $('#age').children(`option[value='${age}']`).each((i, o) => {
-            $(o).attr('selected', 'selected');
+            $(o).prop('selected', true);
         });
-        $('#age').removeAttr('data-value');
+        // $('#age').removeAttr('data-value');
     },
 }
