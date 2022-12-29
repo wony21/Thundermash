@@ -1,0 +1,99 @@
+@import url('https://cdn\.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
+body {
+    font-family: 'NanumSquare', sans-serif !important;
+    /* font-size: 1em; */
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+}
+
+/*******************************************************/
+/* 입력 컨트롤 처리부 */
+/*******************************************************/
+input {
+    border: 0px;
+    color:rgb(128, 163, 176);
+    width: 100%;
+    /* background-color: aqua; */
+}
+input:focus { outline: none;}
+
+/*******************************************************/
+/* Layout 처리부 */
+/*******************************************************/
+.header {
+    height: 70px;
+    background-color: rgb(142, 210, 255);
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    font-size: large;
+}
+
+.title {
+
+}
+
+.label {
+    padding-right: 10px;
+    font-size: 1.0em;
+    color: gray;
+}
+
+.search-div {
+    width: 100%;
+    height: 55px;
+    background-color: aliceblue;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+}
+
+.search-box {
+    width: 220px;
+    height: 35px;
+    border: 1px solid white;
+    background-color: white;
+    border-radius: 10px;
+    padding: 5px;
+    display: flex;
+}
+
+.search-text-input {
+    background-color: transparent;
+    color: gray;
+    font-family: 'NanumSquare', sans-serif !important;
+}
+
+button {
+    margin-left: 5px;
+    cursor: pointer;
+    width: 80px;
+    height: 35px;
+    border-radius: 10px;
+    border-color: transparent;
+    font-family: 'NanumSquare', sans-serif !important;
+}
+
+button:hover {
+    background-color: black;
+    color:white;
+}
+
+.contents {
+    padding: 10px 10px 10px 10px;
+}
+
+.create-team-button {
+    background-color: white;
+    color: orange;
+    font-weight: bold;
+    font-size: larger;
+    border: dotted 2px black;
+    width: 160px;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,0 +1,18 @@
+extends layouts/layout
+
+block header 
+
+block content 
+    div(class="search-div")
+        label(class="label") 검색어
+        div(class="search-box")
+            input(class="search-text-input")
+        button(class="search-button") 검색하기
+    div(class="contents")
+        div(class="contents-header")
+            | 팀 목록
+        div(class="team-item")
+        button(class="create-team-button")
+            | 팀 생성하기
+        
+block scripts

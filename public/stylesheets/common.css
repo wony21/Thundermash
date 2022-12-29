@@ -262,6 +262,8 @@ input {
   width: 100%;
   /* background-color: aqua; */
 }
+input:focus { outline: none;}
+
 input[type=password] {
   font-family: 'Noto Sans KR', sans-serif;
 }
@@ -270,7 +272,7 @@ input[type=password]::placeholder {
   font-family: 'NanumSquare', sans-serif;
 }
 
-input:focus { outline: none;}
+
 
 select:focus { outline: none;}
 .choice {

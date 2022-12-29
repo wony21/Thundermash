@@ -16,6 +16,7 @@ var scheduleApiRouter = require('./routes/api/schedule.api');
 var attendApiRouter = require('./routes/api/attend.api');
 var mapApiRouter = require('./routes/api/map.api');
 var pictureApiRouter = require('./routes/api/picture.api');
+var gameRouter = require('./routes/api/game.api');
 
 var app = express();
 
@@ -69,6 +70,7 @@ var passportMiddleWare = function (req, res, next) {
   res.redirect('/login');
 }
 
+app.use('/game', gameRouter);
 app.use('/', loginRouter);
 app.use('/error', errorRouter);
 app.use('/users', usersApiRouter);
